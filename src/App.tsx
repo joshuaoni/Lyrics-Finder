@@ -1,4 +1,3 @@
-import './App.css';
 import { Navigation } from './components/Navigation';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home';
@@ -9,7 +8,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navigation/>
-        <div className='cont'>
+        <div>
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/lyrics/track/:id' element={<Lyrics/>} />

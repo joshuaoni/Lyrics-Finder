@@ -1,23 +1,31 @@
 import { Link } from "react-router-dom";
 import { TrackProps } from "../types/Exported.types";
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import ForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 export const Track = ({trackDetails}: TrackProps) => {
     return (
-        <div>
+        <div className="track-grid">
             <div className="card">
-                <div className="card-body">
-                    <h5>{trackDetails.artist_name}</h5>
-                    <p className="card-text">
-                        <span>Track: {trackDetails.track_name}</span>
-                        <br/>
-                        <span>Album: {trackDetails.album_name}</span>
-                    </p>
-                    <Link to={`lyrics/track/${trackDetails.track_id}`}>
-                        Lyrics
-                    </Link>
+                <div>
+                    <div>
+                        <Typography className="artiste" variant="h5" gutterBottom component="div">
+                            {trackDetails.artist_name}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom component="div">
+                            <span>Track: </span>{trackDetails.track_name}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom component="div">
+                            <span>Album: </span>{trackDetails.album_name}
+                        </Typography>
+                    </div>
                 </div>
             </div>
+                <Link to={`lyrics/track/${trackDetails.track_id}`}>
+                    <Button size="medium" variant="contained" endIcon={<ForwardIcon />}>Get track lyrics</Button>
+                </Link>
         </div>
     )
 }

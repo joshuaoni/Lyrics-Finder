@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { LyricsTrackType, LyricsType } from "../types/Exported.types";
 import Button from '@mui/material/Button';
+import BackIcon from '@mui/icons-material/ArrowBack';
+import Typography from '@mui/material/Typography';
 
 
 export const Lyrics = () => {
@@ -13,22 +15,22 @@ export const Lyrics = () => {
 
     useEffect(()=>{
         const handleRequest = async () => {
-            const response = await fetch(`https://safe-reaches-52312.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${id.id}&apikey=1ad8558fb899b0890b2418751281e416`)
+            const response = await fetch(`https://safe-reaches-52312.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${id.id}&apikey=58b1745e8f247488225e2737052da3a4`);
             const res = await response.json();
             
             let lyricsObj = res.message.body.lyrics;
             setLyrics({lyricsObj});
     
-            const response2 = await fetch(`https://safe-reaches-52312.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.get?track_id=${id.id}&apikey=1ad8558fb899b0890b2418751281e416`)
+            const response2 = await fetch(`https://safe-reaches-52312.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.get?track_id=${id.id}&apikey=58b1745e8f247488225e2737052da3a4`);
             const res2 = await response2.json();
     
             let trackObj = res2.message.body.track;
             setLyricsTrack({trackObj});
-            console.log({lyricsObj:lyricsObj})
         }
+
         handleRequest();
         setLoading(false);
-      }, [id.id]);
+    }, [id.id]);
 
 
     if (loading) {
@@ -38,33 +40,40 @@ export const Lyrics = () => {
             <div className="lyrics">
                 <>
                     <Link to="/" className="back">
-                        <Button>Back</Button>
+                        <Button><BackIcon/>Back</Button>
                     </Link>
                     <div className="card">
-                    <h5 className="card-header">
-                        {lyricsTrack.trackObj?.track_name} by{" "}
-                        <span className="text-secondary">{lyricsTrack.trackObj?.artist_name}</span>
-                    </h5>
-                    <div className="card-body">
-                        
-                        {lyrics.lyricsObj?.lyrics_body ? <p className="card-text">{lyrics.lyricsObj?.lyrics_body}</p> : <p className="error">No lyrics yet</p>}
-                    </div>
+                        <Typography className="card-header" variant="h5" gutterBottom component="div">
+                            {lyricsTrack.trackObj?.track_name} by{" "}
+                            <span>
+                                {lyricsTrack.trackObj?.artist_name}
+                            </span>
+                        </Typography>
+                        <div className="card-body">
+                            { lyrics.lyricsObj?.lyrics_body ?
+                            <Typography variant="subtitle1" gutterBottom component="div">
+                                {lyrics.lyricsObj?.lyrics_body}
+                            </Typography> : 
+                            <Typography className="error" variant="subtitle1" gutterBottom component="div">
+                                No lyrics yet
+                            </Typography> }
+                        </div>
                     </div>
 
-                    <ul className="list-group mt-3">
-                    <li className="list-group-item">
-                        <strong>Album ID</strong>: {lyricsTrack.trackObj?.album_id}
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Song Genre</strong>:{" "}
-                        {lyricsTrack.trackObj?.primary_genres.music_genre_list[0]
-                        ? lyricsTrack.trackObj?.primary_genres.music_genre_list[0].music_genre.music_genre_name
-                        : "NO GENRE AVAILABLE"}
-                    </li>
-                    <li className="list-group-item">
-                        <strong>Explicit Words</strong>:{" "}
-                        {lyricsTrack.trackObj?.explicit === 0 ? "No" : "Yes"}
-                    </li>
+                    <ul>
+                        <li>
+                            <strong>Album ID</strong>: {lyricsTrack.trackObj?.album_id}
+                        </li>
+                        <li>
+                            <strong>Song Genre</strong>:{" "}
+                            {lyricsTrack.trackObj?.primary_genres.music_genre_list[0]
+                            ? lyricsTrack.trackObj?.primary_genres.music_genre_list[0].music_genre.music_genre_name
+                            : "NO GENRE AVAILABLE"}
+                        </li>
+                        <li>
+                            <strong>Explicit Words</strong>:{" "}
+                            {lyricsTrack.trackObj?.explicit === 0 ? "No" : "Yes"}
+                        </li>
                     </ul>
                 </>
             </div>

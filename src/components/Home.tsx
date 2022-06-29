@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Search } from "./Search"
-import { Tracks } from "./Tracks"
+import { Search } from "./Search";
+import { Tracks } from "./Tracks";
 import { TrackState } from "../types/Exported.types";
 import './Components.css';
 
