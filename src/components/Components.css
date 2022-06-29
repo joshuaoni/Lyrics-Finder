@@ -81,7 +81,7 @@ form {
     background: rgba(0, 0, 76, 0.6);
 }
 
-.track-grid .css-i4bv87-MuiSvgIcon-root {
+.track-grid .css-i4bv87-MuiSvgIcon-root, .track-grid .css-vubbuv  {
     color: white;
 }
 
@@ -181,7 +181,7 @@ li:nth-last-child(1) {
 }
 
 .track-grid .css-t1nuxst {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     overflow-wrap: break-word;
 }
 
