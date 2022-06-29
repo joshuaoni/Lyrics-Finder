@@ -2,7 +2,7 @@
 
 This project consumes the Musixmatch API 
 
-## live Link
+## Live Link
 
 [Lyrics Finder](https://chic-moonbeam-1965ee.netlify.app/)
 
