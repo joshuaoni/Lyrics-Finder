@@ -1,0 +1,70 @@
+nav {
+    margin-bottom: 2rem;
+}
+
+.back button {
+    font-weight: 700;
+    font-size: 110%;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.txt .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 11px 14px;
+}
+
+.txt .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    top: -5px
+}
+
+.txt + button {
+    margin-top: 0.3rem;
+}
+
+.load {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tracks {
+    padding: 0 2rem;
+}
+
+.tracks .typo {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.error {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.track-grid {
+    border: 0.5px solid rgba(0,0,0,1);
+}
+
+
+
+
+@media screen and (max-width: 35em) {
+    .tracks {
+        padding: 0 1rem;
+    }
+}
+
