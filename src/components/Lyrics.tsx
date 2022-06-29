@@ -44,7 +44,7 @@ export const Lyrics = () => {
                     </Link>
                     <div className="card">
                         <Typography className="card-header" variant="h5" gutterBottom component="div">
-                            {lyricsTrack.trackObj?.track_name} by{" "}
+                            {lyricsTrack.trackObj?.track_name} {lyricsTrack.trackObj?.track_name ? 'by' : null}{" "}
                             <span>
                                 {lyricsTrack.trackObj?.artist_name}
                             </span>

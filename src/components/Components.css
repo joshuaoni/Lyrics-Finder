@@ -178,11 +178,11 @@ li:nth-last-child(1) {
 .artiste, .track-grid span {
     color: rgb(0, 0, 76);
     font-weight: 700;
-    overflow-wrap: break-word;
 }
 
-.track-grid .css-h93ljk-MuiTypography-root {
+.track-grid .css-t1nuxst {
     font-size: 1.2rem;
+    overflow-wrap: break-word;
 }
 
 .track-grid .css-1wniyei-MuiTypography-root {
