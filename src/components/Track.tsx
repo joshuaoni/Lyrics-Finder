@@ -11,7 +11,7 @@ export const Track = ({trackDetails}: TrackProps) => {
             <div className="card">
                 <div>
                     <div>
-                        <Typography className="artiste" variant="h5" gutterBottom component="div">
+                        <Typography className="artiste" variant="h6" gutterBottom component="div">
                             {trackDetails.artist_name}
                         </Typography>
                         <Typography variant="subtitle1" gutterBottom component="div">
