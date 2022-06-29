@@ -116,9 +116,6 @@ form {
     justify-content: space-between;
 }
 
-/* .tracks .css-1osj8n2-MuiGrid-root {
-} */
-
 .tracks .css-1s50f5r {
     margin-top: 2rem;
 }
@@ -181,6 +178,11 @@ li:nth-last-child(1) {
 .artiste, .track-grid span {
     color: rgb(0, 0, 76);
     font-weight: 700;
+    overflow-wrap: break-word;
+}
+
+.track-grid .css-h93ljk-MuiTypography-root {
+    font-size: 1.2rem;
 }
 
 .track-grid .css-1wniyei-MuiTypography-root {
